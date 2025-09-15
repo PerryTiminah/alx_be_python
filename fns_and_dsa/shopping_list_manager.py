@@ -6,18 +6,18 @@ def display_menu():
     print("4. Exit")
 
 def main():
-    shopping_list = []
+    shopping_list = []  # array (list) to store items
 
     while True:
-        display_menu()
+        display_menu()  # call the menu
 
         try:
-            choice = int(input("Enter your choice (1-4): "))
+            choice = int(input("Enter your choice (1-4): "))  # input as number
         except ValueError:
             print("Invalid input. Please enter a number between 1 and 4.")
             continue
 
-        if choice == 1:
+        if choice == 1:  # Add item
             item = input("Enter the item to add: ").strip()
             if item:
                 shopping_list.append(item)
@@ -25,7 +25,7 @@ def main():
             else:
                 print("Item name cannot be empty.")
 
-        elif choice == 2:
+        elif choice == 2:  # Remove item
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
                 shopping_list.remove(item)
@@ -33,7 +33,7 @@ def main():
             else:
                 print(f'"{item}" not found in the list.')
 
-        elif choice == 3:
+        elif choice == 3:  # View list
             if shopping_list:
                 print("\nCurrent Shopping List:")
                 for i, item in enumerate(shopping_list, start=1):
@@ -41,7 +41,7 @@ def main():
             else:
                 print("The shopping list is empty.")
 
-        elif choice == 4:
+        elif choice == 4:  # Exit
             print("Exiting Shopping List Manager. Goodbye!")
             break
         else:
@@ -49,4 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
